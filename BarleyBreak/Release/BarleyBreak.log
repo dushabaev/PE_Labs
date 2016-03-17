@@ -1,0 +1,24 @@
+﻿  pch.cpp
+  App.xaml.cpp
+  Cell.cpp
+e:\development\pe\pe_labs\barleybreak\MainPage.xaml.h(94): warning C4244: 'return': conversion from 'double' to 'long', possible loss of data (compiling source file App.xaml.cpp)
+  MainPage.xaml.cpp
+e:\development\pe\pe_labs\barleybreak\MainPage.xaml.h(94): warning C4244: 'return': conversion from 'double' to 'long', possible loss of data (compiling source file MainPage.xaml.cpp)
+MainPage.xaml.cpp(29): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+MainPage.xaml.cpp(106): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+MainPage.xaml.cpp(107): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+MainPage.xaml.cpp(208): warning C4018: '<': signed/unsigned mismatch
+MainPage.xaml.cpp(216): warning C4018: '<': signed/unsigned mismatch
+MainPage.xaml.cpp(226): warning C4018: '<': signed/unsigned mismatch
+MainPage.xaml.cpp(234): warning C4018: '<': signed/unsigned mismatch
+  XamlTypeInfo.Impl.g.cpp
+  Generating code
+  Finished generating code
+  XamlTypeInfo.g.cpp
+E:\Development\PE\PE_Labs\BarleyBreak\MainPage.xaml.h(94): warning C4244: 'return': conversion from 'double' to 'long', possible loss of data
+     Creating library E:\Development\PE\PE_Labs\Release\BarleyBreak\BarleyBreak.lib and object E:\Development\PE\PE_Labs\Release\BarleyBreak\BarleyBreak.exp
+  Generating code
+  All 2994 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  BarleyBreak.vcxproj -> E:\Development\PE\PE_Labs\Release\BarleyBreak\BarleyBreak.exe
+  BarleyBreak.vcxproj -> E:\Development\PE\PE_Labs\Release\BarleyBreak\BarleyBreak.pdb (Full PDB)

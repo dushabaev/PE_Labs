@@ -1,0 +1,14 @@
+﻿  pch.cpp
+  App.xaml.cpp
+  MainPage.xaml.cpp
+MainPage.xaml.cpp(122): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  XamlTypeInfo.Impl.g.cpp
+  Generating code
+  Finished generating code
+  XamlTypeInfo.g.cpp
+     Creating library E:\Development\PE\PE_Labs\Release\Events\Events.lib and object E:\Development\PE\PE_Labs\Release\Events\Events.exp
+  Generating code
+  All 3658 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Events.vcxproj -> E:\Development\PE\PE_Labs\Release\Events\Events.exe
+  Events.vcxproj -> E:\Development\PE\PE_Labs\Release\Events\Events.pdb (Full PDB)

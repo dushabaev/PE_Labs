@@ -1,0 +1,17 @@
+Anthocerotophyta
+Ascomycota
+Basidiomycota
+Bryophyta
+Chlorophyta
+Coniferophyta
+Cycadophyta
+Equisetophyta
+Ginkgophyta
+Gnetophyta
+Hepaticophyta
+Lycopodiophyta
+Magnoliophyta
+Mitosporic fungi
+Psilophyta
+Pteridophyta
+Rhodophyta

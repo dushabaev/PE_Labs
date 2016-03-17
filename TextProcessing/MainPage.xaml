@@ -1,0 +1,254 @@
+﻿<Page
+    x:Class="TextProcessing.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TextProcessing"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Loaded="Page_Loaded">
+    <Page.Resources>
+        <Style x:Key="DescTextBlock" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="ValueBox" TargetType="ComboBox">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="Margin" Value="0,5"/>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+    </Page.Resources>
+    <Page.TopAppBar>
+        <CommandBar >
+            <AppBarButton x:Name="SaveBtn" Icon="Save" Label="Save" Click="SaveBtn_Click"/>
+            <AppBarButton x:Name="OpenBtn" Icon="OpenFile" Label="Open" Click="OpenBtn_Click"/>
+        </CommandBar>
+    </Page.TopAppBar>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Title: " Style="{StaticResource DescTextBlock}" Grid.Row="1"/>
+        <TextBox Grid.Column="1" x:Name="TitleBox" PlaceholderText="Plant's title" Margin="0,5,0,5" Grid.Row="1" />
+
+        <TextBlock Grid.Row="2" Text="Kingdom: " Style="{StaticResource DescTextBlock}"/>
+        <ComboBox x:Name="KingdomBox" ItemsSource="{x:Bind Kingdom}" Grid.Row="2" Style="{StaticResource ValueBox}"
+                  Loaded="ComboBox_Loaded"/>
+
+        <TextBlock Grid.Row="3" Text="Division: " Style="{StaticResource DescTextBlock}"/>
+        <ComboBox x:Name="DivisionBox" ItemsSource="{x:Bind Division}" Grid.Row="3" Style="{StaticResource ValueBox}"
+                  Loaded="ComboBox_Loaded"/>
+
+        <TextBlock Grid.Row="4" Text="Class: " Style="{StaticResource DescTextBlock}"/>
+        <ComboBox x:Name="ClassBox" Grid.Row="4" ItemsSource="{x:Bind Class}" Style="{StaticResource ValueBox}"
+                  Loaded="ComboBox_Loaded"/>
+
+        <TextBlock Grid.Row="5" Text="Order: " Style="{StaticResource DescTextBlock}"/>
+        <ComboBox x:Name="OrderBox" ItemsSource="{x:Bind Order}" Grid.Row="5" Style="{StaticResource ValueBox}"
+                  Loaded="ComboBox_Loaded"/>
+
+        <TextBlock Grid.Row="6" Text="Family: " Style="{StaticResource DescTextBlock}"/>
+        <ComboBox x:Name="FamilyBox" ItemsSource="{x:Bind Family}" Grid.Row="6" Style="{StaticResource ValueBox}"
+                  Loaded="ComboBox_Loaded"/>
+
+        <TextBlock Grid.Row="7" Text="Genus: " Style="{StaticResource DescTextBlock}"/>
+        <ComboBox x:Name="GenusBox" ItemsSource="{x:Bind Genus}" Grid.Row="7" Style="{StaticResource ValueBox}"
+                  Loaded="ComboBox_Loaded"/>
+        <Button x:Name="ActionBtn"  Grid.Row="8" Grid.ColumnSpan="2"  HorizontalAlignment="Stretch" Margin="0,10"  Content="ADD"/>
+        <ListView x:Name="PlantView" Grid.Row="9" Grid.ColumnSpan="2"  ItemsSource="{x:Bind Plants}" Margin="0,10" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <ListView.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                        <Style TargetType="Border">
+                            <Setter Property="Background" Value="MediumSlateBlue"/>
+                            <Setter Property="BorderBrush" Value="Gray"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                        </Style>
+                    </Grid.Resources>
+                    <Border Grid.Column="0">
+                        <TextBlock Grid.Column="0" Text="Title"/>
+                    </Border>
+                    <Border Grid.Column="1">
+                        <TextBlock Grid.Column="1" Text="Kingdom"/>
+                    </Border>
+                    <Border Grid.Column="2">
+                        <TextBlock Grid.Column="2" Text="Division"/>
+                    </Border>
+                    <Border Grid.Column="3">
+                        <TextBlock Grid.Column="3" Text="Class" />
+                    </Border>
+                    <Border Grid.Column="4">
+                        <TextBlock Grid.Column="4" Text="Order" />
+                    </Border>
+                    <Border Grid.Column="5">
+                        <TextBlock Grid.Column="5" Text="Family"/>
+                    </Border>
+                    <Border Grid.Column="6">
+                        <TextBlock Grid.Column="6" Text="Genus" />
+                    </Border>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="MinHeight" Value="0"/>
+                    <Setter Property="Padding" Value="0,0"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Plant">
+                    <Grid RightTapped="Grid_RightTapped">
+                        <FlyoutBase.AttachedFlyout>
+                            <MenuFlyout Placement="Right">
+                                <MenuFlyoutItem x:Name="EditButton" Text="Edit" Click="EditButton_Click"/>
+                                <MenuFlyoutItem x:Name="DeleteButton" Text="Delete" Click="DeleteButton_Click"/>
+                            </MenuFlyout>
+                        </FlyoutBase.AttachedFlyout>
+                        <Grid.Resources>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center"/>
+                                <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                            </Style>
+                            <Style TargetType="Border">
+                                <Setter Property="BorderBrush" Value="Gray"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.ColumnSpan="7"/>
+                        <Border Grid.Column="0">
+                            <TextBlock Text="{x:Bind Title}"/>
+                        </Border>
+                        <Border Grid.Column="1">
+                            <TextBlock Text="{x:Bind Kingdom}" />
+                        </Border>
+                        <Border Grid.Column="2">
+                            <TextBlock Grid.Column="2" Text="{x:Bind Division}"/>
+                        </Border>
+                        <Border Grid.Column="3">
+                            <TextBlock Grid.Column="3" Text="{x:Bind Class}"/>
+                        </Border>
+                        <Border Grid.Column="4">
+                            <TextBlock Grid.Column="4" Text="{x:Bind Order}" />
+                        </Border>
+                        <Border Grid.Column="5">
+                            <TextBlock Grid.Column="5" Text="{x:Bind Family}"/>
+                        </Border>
+                        <Border Grid.Column="6">
+                            <TextBlock Grid.Column="6" Text="{x:Bind Genus}" />
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+    <!--<StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                    <TextBlock VerticalAlignment="Center" Margin="0,0,10,0" SelectionChanged="TextBlock_SelectionChanged" Text="Title"/>
+                    <TextBox VerticalAlignment="Center" Text=""/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10,20,0,0">
+                    <TextBlock VerticalAlignment="Center" Text="TextBlock" Margin="0,0,10,0"/>
+                    <TextBox VerticalAlignment="Center" Text="TextBlock" InputScope="Text"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10,20,0,0">
+                    <TextBlock VerticalAlignment="Center" Text="TextBlock" Margin="0,0,10,0"/>
+                    <ComboBox SelectedIndex="0">
+                        <ComboBox.Items>
+                            <TextBlock Text="Item0"/>
+                            <TextBlock Text="Item1"/>
+                            <TextBlock Text="Item2"/>
+                            <TextBlock Text="Item3"/>
+                        </ComboBox.Items>
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="40,0,0,0">
+                <StackPanel>
+                    <TextBlock Text="TextBlock" HorizontalAlignment="Center"/>
+                    <ListBox SelectedIndex="0" Height="133" Width="75">
+                        <ListBox.Items>
+                            <TextBlock Text="Item0"/>
+                            <TextBlock Text="Item1"/>
+                            <TextBlock Text="Item2"/>
+                            <TextBlock Text="Item3"/>
+                        </ListBox.Items>
+                    </ListBox>
+                </StackPanel>
+                <StackPanel Margin="20,0,0,0">
+                    <TextBlock Text="TextBlock"/>
+                    <ListBox SelectedIndex="0" Height="133" Width="75" SelectionMode="Multiple">
+                        <ListBox.Items>
+                            <TextBlock Text="Item0"/>
+                            <TextBlock Text="Item1"/>
+                            <TextBlock Text="Item2"/>
+                            <TextBlock Text="Item3"/>
+                        </ListBox.Items>
+                    </ListBox>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Margin="10,0,0,0">
+                <TextBlock Text="TextBlock" Margin="0,0,0,10"/>
+                <TextBox AcceptsReturn="True"/>
+            </StackPanel>
+            <StackPanel Margin="230,0,0,0">
+                <TextBlock Text="TextBlock" HorizontalAlignment="Center" IsHoldingEnabled="True" Margin="0,0,0,10"/>
+                <RichEditBox Width="300"/>
+            </StackPanel>
+        </StackPanel>
+        <ListView>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <GridView>
+
+                    </GridView>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackPanel>-->
+</Page>

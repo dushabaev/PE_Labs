@@ -1,0 +1,1 @@
+E:\Development\PE\PE_Labs\TextProcessing\TextProcessing.vcxproj;x86

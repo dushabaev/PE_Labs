@@ -1,0 +1,14 @@
+﻿  pch.cpp
+  App.xaml.cpp
+  MainPage.xaml.cpp
+  Plant.cpp
+  XamlTypeInfo.Impl.g.cpp
+  Generating code
+  Finished generating code
+  XamlTypeInfo.g.cpp
+     Creating library E:\Development\PE\PE_Labs\Release\TextProcessing\TextProcessing.lib and object E:\Development\PE\PE_Labs\Release\TextProcessing\TextProcessing.exp
+  Generating code
+  All 6437 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  TextProcessing.vcxproj -> E:\Development\PE\PE_Labs\Release\TextProcessing\TextProcessing.exe
+  TextProcessing.vcxproj -> E:\Development\PE\PE_Labs\Release\TextProcessing\TextProcessing.pdb (Full PDB)
